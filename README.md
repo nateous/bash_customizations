@@ -52,5 +52,6 @@ see: https://askubuntu.com/a/87066
 ```
 alias gdm="git branch --merged | grep -v '\*' | xargs git branch -d"
 alias cleanup="git stash; git checkout main; git pull -p; gdm; function _newbranch() { if [[ \$# -eq 1 ]]; then git checkout -b \$1; fi; }; _newbranch"
+alias gpp="git pull -p"
 ```
 
