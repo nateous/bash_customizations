@@ -55,6 +55,8 @@ alias cleanup="git stash; git checkout main; git pull -p; gdm; function _newbran
 alias gpp="git pull -p"
 alias code='open -a "Visual Studio Code - Insiders"'
 alias prep="dotnet format ./src;dotnet build ./src;dotnet test ./src;git add .;git diff --staged"
+alias prep='f() { DIR=${1:-./src}; dotnet format $DIR && dotnet build $DIR && dotnet test $DIR && git add . && git diff --staged; }; f'
+git config --global alias.prep '!sh -c "DIR=${1:-./src}; dotnet format $DIR && dotnet build $DIR && dotnet test $DIR && git add . && git diff --staged"'
 git config --global alias.rekt '!git reset HEAD~ && git checkout .'
 git config --global alias.it '!f() { git init && git add --all && git commit -m "Git to it!" && git remote add origin "$1" && git push -u origin HEAD; }; f'
 ```
